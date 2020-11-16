@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>API Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="user-container"></div>
+        <div class="quote-container"></div>
+        <div class="content-container">
+            <div class="pokemon-container"></div>
+            <div class="meat-container"></div>
+        </div>
+        <div class="friends">
+            <h4>Friends</h4>
+            <br>
+            <div class="friends-container"></div>
+        </div>
+        <div class="buttons">
+            <button onclick="fetch()">Load User Data</button>
+            <button onclick="display()">Display User</button>
+            <button onclick="save()">Save User Page</button>
+            <button onclick="load()">Load User Page</button>
+        </div>
+    </div>
+
+    <script id="pokemon-template" type="text/x-handlebars-template">
+        <img id="pokemon-image" src={{pokemon.image}} alt="Profile Picture">
+        <span id="pokemon-text">Favorite Pokomen: {{pokemon.name}}</span>
+    </script>
+   
+        <script id="quote-template" type="text/x-handlebars-template">
+     <div><span>{{kanyeQuote}}</span></div>
+    </script>
+
+    <script id="about-template" type="text/x-handlebars-template">
+    <div class="meat-text">  
+        <div><span>{{about}}</span></div>
+    </div>
+      </script>
+
+    <script id="user-template" type="text/x-handlebars-template">
+        <img id="profile-pic" src={{mainUser.image}} alt="Profile Picture">
+        <div class="user-info">  
+            <div><span>{{mainUser.name}}</span></div>
+            <div><span>{{mainUser.city}}</span>, <span>{{mainUser.country}}</span></div>
+        </div>
+    </script>
+
+    <script id="friends-template" type="text/x-handlebars-template">
+    <ul>
+       {{#each userFriends}}
+          <li>{{ this }}</li>
+        {{/each}}
+    </ul>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="APIManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
