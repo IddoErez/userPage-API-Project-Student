@@ -2,7 +2,13 @@
 
 class APIManager {
     constructor() {
-        this.data = {}
+        this.data = {
+            mainUser: {},
+            userFriends: [],
+            pokemon: {},
+            about: {},
+            kanyeQuote: {}
+         }
     }
     
     getQuote() {
@@ -23,7 +29,7 @@ class APIManager {
                 this.data.mainUser.name = data.results[0].name.first + " " + data.results[0].name.last
                 this.data.mainUser.city = data.results[0].location.city
                 this.data.mainUser.country = data.results[0].location.country
-                this.data.mainUser.image = data.results[0].picture.large
+                this.data.mainUser.image = data.results[0].picture.medium
 
             }
         })
